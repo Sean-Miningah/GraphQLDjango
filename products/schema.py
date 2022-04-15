@@ -19,7 +19,6 @@ class BookType(DjangoObjectType):
             'price',
             'quantity',
             'description',
-            'imageurl', 
             'status', 
             'date_created',
 
@@ -35,7 +34,6 @@ class GroceryType(DjangoObjectType):
             'category',
             'price',
             'quantity',
-            'imageurl',
             'status',
             'date_created',
         )
@@ -56,5 +54,5 @@ class Query(graphene.ObjectType):
     def resolve_groceries(root, info, **kwargs):
         # Querying a list
         return Grocery.objects.all()
-        
+
 schema = graphene.Schema(query=Query)
