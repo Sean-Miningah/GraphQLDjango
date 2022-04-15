@@ -1,3 +1,4 @@
+from decimal import Decimal
 import graphene 
 from graphene_django import DjangoObjectType
 from .models import Category, Book, Grocery
@@ -126,7 +127,7 @@ class UpdateBook(graphene.Mutation):
         book = Book.objects.get(pk=id)
         book.name = input.name
         book.description = input.description
-        book.price = decimal.Decimal(input.price)
+        book.price = Decimal(input.price)
         book.quantity = input.quantity
         book.save()
         return UpdateBook(book=book)
